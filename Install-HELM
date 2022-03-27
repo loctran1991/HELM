@@ -1,0 +1,35 @@
+HELM
+Helm sẽ giúp bạn deploy nhanh hơn so với việc bạn phải gõ từng lệnh kubectl apply
+Nếu quá nhiều file, đôi lúc bạn re-deploy sẽ quên phải chạy file nào -> Helm sẽ giúp bạn gom nhóm các YAML lại 
+
+1.Download HELM Version
+
+curl -LO https://get.helm.sh/helm-v3.8.1-linux-amd64.tar.gz
+tar -xf helm-v3.8.1-linux-amd64.tar.gz
+mv linux-amd64/helm /usr/local/bin
+
+2.Tạo Helm App để deploy Wordpress + MYSQL
+Mkdir helm && cd helm
+Mkdir temp $$ cd temp
+Helm create wordpress-mysql-app
+Lúc này sẽ xuất hiện folder wordpress-mysql-app trong thư lục temp
+
+3.Tạo template cho việc deploy wordpress-mysql-app
+
+cd ~/helm/temp/wordpress-mysql-app/templates
+
+-	delete everything under /templates, keeping only _helpers.tpl
+-	delete tests folder under templates
+
+Bạn copy tất cả các file YAML của MYSQL và WORDPRESS vào thư mục helm/temp/wordpress-mysql-app/templates
+Trờ về thư mục helm/temp/
+-	Gõ lênh: helm template wordpress-mysql-app wordpress-mysql-app  Tạo template
+-	Gõ lệnh: helm install wordpress-mysql-app wordpress-mysql-app  Deploy app
+
+[root@CentOS8 temp]# helm install wordpress-mysql-app wordpress-mysql-app
+NAME: wordpress-mysql-app
+LAST DEPLOYED: Sun Mar 27 11:40:50 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
