@@ -23,8 +23,9 @@ cd ~/helm/temp/wordpress-mysql-app/templates
 
 Bạn copy tất cả các file YAML của MYSQL và WORDPRESS vào thư mục helm/temp/wordpress-mysql-app/templates
 Trờ về thư mục helm/temp/
--	Gõ lênh: helm template wordpress-mysql-app wordpress-mysql-app  Tạo template
--	Gõ lệnh: helm install wordpress-mysql-app wordpress-mysql-app  Deploy app
+-	Gõ lênh: helm template wordpress-mysql-app wordpress-mysql-app --> Tạo template
+-	Gõ lệnh: helm install wordpress-mysql-app wordpress-mysql-app --> Deploy app
+- Gõ lệnh: Helm delete wordpress-mysql-app -n [namespace] --> Delete all component related to app wordpress-mysql-app
 
 [root@CentOS8 temp]# helm install wordpress-mysql-app wordpress-mysql-app
 NAME: wordpress-mysql-app
